@@ -2,7 +2,7 @@ module.exports = function(eleventyConfig) {
     // Copy the `css` directory to the output
     eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("img");
-    
+    eleventyConfig.addPassthroughCopy("CNAME");
     // Create a collection for documentation pages
     eleventyConfig.addCollection("docs", function(collectionApi) {
         return collectionApi.getFilteredByGlob("docs/**/*.md");
