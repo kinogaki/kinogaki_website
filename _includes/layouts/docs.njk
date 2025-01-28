@@ -3,11 +3,13 @@ layout: layouts/base.njk
 ---
 <div class="docs-container">
     <nav class="docs-nav">
-        {%- for doc in collections.docs %}
-        <a href="{{ doc.url }}" {% if page.url == doc.url %}class="active"{% endif %}>
-            {{ doc.data.title }}
-        </a>
-        {%- endfor %}
+        {%- set navPages = collections.all | eleventyNavigation -%}
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+            listClass: "nav-list",
+            listItemClass: "nav-item",
+            activeListItemClass: "nav-item-active",
+            activeKey: eleventyNavigation.key
+        }) | safe }}
     </nav>
     
     <main class="docs-content">

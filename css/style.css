@@ -5,7 +5,7 @@ body {
         "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
         "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
     margin: 40px auto;
-    max-width: 800px;
+    max-width: 1400px;
     padding: 0 20px;
     line-height: 1.6;
 }
@@ -62,28 +62,181 @@ a:hover {
     border-top: 1px solid rgba(255,255,255,0.2);
     font-size: 14px;
     opacity: 0.7;
+    text-align: center;
 }
 
 /* Documentation styles */
 .docs-container {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    margin-top: 40px;
+    display: flex;
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.docs-nav {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.docs-content {
+    flex: 1;
+    background: white;
+    color: #333;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0.5rem 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    border-bottom: none;
+}
+
+.nav-item-active > a {
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Nested navigation */
+.nav-list .nav-list {
+    padding-left: 1rem;
+}
+
+/* Documentation content images */
+.docs-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+/* Override link colors in docs content */
+.docs-content a {
+    color: #627f64;
+    border-bottom: 1px solid rgba(98, 127, 100, 0.3);
+}
+
+.docs-content a:hover {
+    border-bottom: 1px solid #627f64;
+}
+
+/* Override code block styling in docs */
+.docs-content pre {
+    background: #f5f5f5;
+    border: 1px solid #eee;
+}
+
+/* Documentation headings */
+.docs-content h1 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.docs-content h2 {
+    font-size: 20px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.docs-content h3 {
+    font-size: 16px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 1024px) {
+    body {
+        max-width: 95%;
+    }
 }
 
 @media (max-width: 768px) {
     .docs-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    
+    .docs-nav {
+        width: 100%;
     }
 }
 
-.docs-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  .video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/* Top Navigation */
+.top-nav {
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
-.docs-nav a.active {
-    border-bottom: 1px solid white;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    border-bottom: none;
+    transition: opacity 0.2s;
+}
+
+.top-nav a:hover {
+    opacity: 0.8;
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .top-nav {
+        padding: 0.8rem;
+    }
+}
+
+/* Content width control */
+.narrow-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .narrow-content {
+        max-width: 95%;
+    }
 }
